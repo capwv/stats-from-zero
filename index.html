@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<script src="https://capwv.github.io/SAMS-MIS/sams-bg.js" defer></script>
+<html lang="ar" dir="rtl">
+<head>
+  <script>onload=()=>document.querySelector('footer').insertAdjacentHTML('beforeend','<p style="text-align:center;margin:16px" dir="ltr"><a style="color:#7dd3fc" href="https://capwv.github.io/SAMS-Compass/platforms.html">Platforms &amp; Tools</a></p>');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الإحصاء من الصفر | اتعلم الإحصاء لتحليل البيانات خطوة بخطوة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="lab.css">
+</head>
+<body>
+<div class="aurora" aria-hidden="true"></div>
+<div class="bg-shapes" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <img class="brand-mark" src="" alt="Infinity University Activity"><h1 class="logo">الإحصاء <span>لمحللين البيانات</span></h1>
+    <div class="progress-wrap">
+      <div class="progress-label"><span id="progress-text">0%</span> من الرحلة</div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+  </div>
+<nav class="links-bar" aria-label="روابط الموقع"><button id="home-link">الرئيسية</button><button id="lab-link">معمل الإحصاء</button><a class="community-link" href="https://capwv.github.io/SAMS-Compass/platforms.html" target="_blank" rel="noopener" aria-label="المنصة الرئيسية">⌂ <span>رجوع للمنصة الرئيسية</span> ↗</a><a class="community-link" href="https://infinity-team-1-iua.github.io/IUA-SAMS/" target="_blank" rel="noopener" aria-label="Our Community">👥 <span>Our Community</span> ↗</a></nav></header>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <nav id="nav"></nav>
+    <button class="reset-btn" id="reset-btn" title="مسح كل التقدم المحفوظ">🗑️ ابدأ من الأول</button>
+  </aside>
+
+  <main class="content" id="content">
+    <div class="hero" id="hero">
+      <img class="hero-logo" src="" alt="Infinity University Activity"><div class="hero-pill">INFINITY UNIVERSITY ACTIVITY • STATISTICS FROM ZERO</div><h2>أهلاً بيك في رحلة الإحصاء لمحللين البيانات</h2>
+      <p>الموقع ده هيمشي معاك من الصفر خالص لحد ما تعمل تقرير إحصائي كامل على داتا مبيعات مصرية. كل درس فيه شرح بالعامية المصرية، أمثلة محسوبة بإيدك، كويز بإجابة فورية، وتمارين بالحل. وفي معمل إحصاء تفاعلي جوه المتصفح تجرب فيه كل مقياس بنفسك. تقدمك بيتحفظ لوحده في المتصفح، فممكن تقفل وترجع تكمل من مكانك.</p>
+      <div class="stats"><span><b>14</b> درس متدرج</span><span><b>42</b> سؤال تفاعلي</span><span><b>إحصاء</b> معمل تفاعلي</span></div><button id="start-btn" class="cta">ابدأ رحلتك ←</button><p class="hero-hint">من أول متوسط لحد فترات الثقة واختبار الفرضيات</p><p class="small">التقدم محفوظ على نفس المتصفح والجهاز فقط. مسح بيانات المتصفح بيمسحه.</p>
+    </div>
+    <div id="lesson"></div><section class="lesson" id="lab" hidden><h2>معمل الإحصاء التفاعلي</h2><p>المعمل ده بيشتغل كله جوه متصفحك بـ JavaScript، مفيش أي حاجة بتتبعت لسيرفر. داتا الكورس (24 طلب من متجرنا التجريبي) متعرفة جاهزة، وتقدر كمان تدخل أرقامك بنفسك.</p>
+<div class="lab-tabs">
+  <button class="lab-tab active" data-tab="measures">📊 حاسبة المقاييس</button>
+  <button class="lab-tab" data-tab="hist">📈 التوزيع (Histogram)</button>
+  <button class="lab-tab" data-tab="corr">🔗 الارتباط (Correlation)</button>
+  <button class="lab-tab" data-tab="sampling">🎲 محاكي العينات</button>
+  <button class="lab-tab" data-tab="ci">🎯 فترة الثقة و Z-Score</button>
+</div>
+
+<div class="lab-panel active" id="tab-measures">
+  <p>اكتب أرقام مفصولة بفواصل، أو اختار عمود من داتا الكورس، واضغط احسب. هتحصل على كل مقاييس الوسط والتشتت اللي اتعلمناها.</p>
+  <div class="lab-row">
+    <select id="m-preset">
+      <option value="">اختار عمود جاهز من الداتا…</option>
+      <option value="revenue">revenue (إيراد الـ 24 طلب)</option>
+      <option value="units">units (عدد القطع)</option>
+      <option value="delivery_days">delivery_days (أيام التوصيل)</option>
+      <option value="rating">rating (تقييم العملاء)</option>
+    </select>
+  </div>
+  <textarea class="lab-data" id="m-input" rows="3" spellcheck="false">12000, 4000, 1200, 5000, 1500</textarea>
+  <div class="lab-row"><button class="cta" id="m-run">احسب المقاييس ▶</button></div>
+  <div class="lab-out" id="m-out" aria-live="polite"></div>
+</div>
+
+<div class="lab-panel" id="tab-hist">
+  <p>الـ Histogram بيقسم الأرقام لخانات (bins) وبيرسم قد إيه رقم وقع في كل خانة. جربه على إيراد الطلبات ولاحظ إن الطلب الكبير (45000) بيشد التوزيع ناحية اليمين: ده اسمه Right Skew.</p>
+  <div class="lab-row">
+    <select id="h-preset">
+      <option value="revenue">revenue (إيراد الـ 24 طلب)</option>
+      <option value="units">units (عدد القطع)</option>
+      <option value="delivery_days">delivery_days (أيام التوصيل)</option>
+      <option value="rating">rating (تقييم العملاء)</option>
+    </select>
+    <label>عدد الخانات: <input type="number" id="h-bins" value="6" min="3" max="12"></label>
+    <button class="cta" id="h-run">ارسم ▶</button>
+  </div>
+  <div class="lab-out" id="h-out"></div>
+</div>
+
+<div class="lab-panel" id="tab-corr">
+  <p>احسب معامل ارتباط Pearson (r) بين عمودين وشوفهم مرسومين. رقم قريب من 1 يعني علاقة طردية قوية، قريب من -1 يعني عكسية قوية، وقريب من 0 يعني مفيش علاقة خطية.</p>
+  <div class="lab-row">
+    <label>العمود الأول (X): <select id="c-x">
+      <option value="delivery_days">delivery_days</option>
+      <option value="units">units</option>
+      <option value="revenue">revenue</option>
+      <option value="rating">rating</option>
+    </select></label>
+    <label>العمود التاني (Y): <select id="c-y">
+      <option value="rating">rating</option>
+      <option value="revenue">revenue</option>
+      <option value="units">units</option>
+      <option value="delivery_days">delivery_days</option>
+    </select></label>
+    <button class="cta" id="c-run">احسب الارتباط ▶</button>
+  </div>
+  <div class="lab-out" id="c-out"></div>
+</div>
+
+<div class="lab-panel" id="tab-sampling">
+  <p>ده أحلى جزء: المحاكي بيسحب عينات عشوائية من إيراد الـ 24 طلب (ده "المجتمع" بتاعنا) وبيحسب متوسط كل عينة. كرر السحب وشوف متوسطات العينات بتتجمع حوالين متوسط المجتمع الحقيقي (7196 جنيه تقريباً). دي فكرة Central Limit Theorem وأنت بتشوفها بعينك.</p>
+  <div class="lab-row">
+    <label>حجم العينة: <input type="number" id="s-size" value="5" min="2" max="15"></label>
+    <label>عدد العينات في المرة: <input type="number" id="s-count" value="20" min="1" max="500"></label>
+    <button class="cta" id="s-run">اسحب عينات 🎲</button>
+    <button class="solution-toggle" id="s-reset">🔄 صفّر المحاكاة</button>
+  </div>
+  <div class="lab-out" id="s-out"><p class="small">لسه مسحبتش عينات. اضغط "اسحب عينات" وشوف.</p></div>
+</div>
+
+<div class="lab-panel" id="tab-ci">
+  <p><b>فترة الثقة:</b> ادخل متوسط العينة وانحرافها المعياري وحجمها، وهنحسب فترة الثقة 95% (يعني المتوسط الحقيقي للمجتمع متوقع يكون جوه الفترة دي بثقة 95%).</p>
+  <div class="lab-row">
+    <label>متوسط العينة x̄: <input type="number" id="ci-mean" value="6812.5"></label>
+    <label>الانحراف المعياري s: <input type="number" id="ci-sd" value="6611.34"></label>
+    <label>حجم العينة n: <input type="number" id="ci-n" value="8"></label>
+    <button class="cta" id="ci-run">احسب الفترة ▶</button>
+  </div>
+  <div class="lab-out" id="ci-out"></div>
+  <p style="margin-top:22px"><b>حاسبة Z-Score:</b> عايز تعرف قيمة معينة بعيدة عن المتوسط قد إيه بوحدة الانحراف المعياري؟</p>
+  <div class="lab-row">
+    <label>القيمة x: <input type="number" id="z-x" value="45000"></label>
+    <label>المتوسط μ: <input type="number" id="z-mean" value="7195.83"></label>
+    <label>الانحراف σ: <input type="number" id="z-sd" value="9106.93"></label>
+    <button class="cta" id="z-run">احسب Z ▶</button>
+  </div>
+  <div class="lab-out" id="z-out"></div>
+</div>
+<p class="small">المعمل بيحسب كل حاجة على جهازك مباشرة. الأرقام اللي بتطلع منه هي نفسها اللي في الدروس، جرب وقارن بنفسك.</p></section>
+  <footer class="small" style="text-align:center;margin:30px 0">من أسرة Infinity University Activity<br><a href="https://www.khanacademy.org/math/statistics-probability">Khan Academy: Statistics</a> · <a href="https://seeing-theory.brown.edu/">Seeing Theory (إحصاء بالرسم)</a> · <a href="https://www.statisticshowto.com/">Statistics How To</a><p>معمل الإحصاء مكتوب بـ JavaScript خالص وبيشتغل في متصفحك مباشرة، من غير مكتبات ولا سيرفر.</p>
+    <div class="contact-footer" aria-label="بيانات التواصل">
+      <div class="contact-name">Ahmed Wael Othman</div>
+      <nav class="contact-links" aria-label="روابط التواصل">
+        <a href="https://www.linkedin.com/in/ahmed-wael-othman/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">in <span>LinkedIn</span></a>
+        <a href="mailto:ahmedwaelothman612@gmail.com" aria-label="Email Ahmed Wael Othman">✉ <span>Gmail</span></a>
+        <a href="https://github.com/capwv" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">⌘ <span>GitHub</span></a>
+      </nav>
+    </div>
+  </footer></main>
+</div>
+<button class="menu-toggle" id="menu-toggle">☰ الدروس</button>
+<script src="js/brand.js"></script>
+<script src="js/curriculum-1.js"></script>
+<script src="js/curriculum-2.js"></script>
+<script src="js/curriculum-3.js"></script>
+<script src="js/curriculum-4.js"></script>
+<script src="js/curriculum-5.js"></script>
+<script src="js/curriculum-6.js"></script>
+<script src="js/curriculum-7.js"></script>
+<script src="js/curriculum-8.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/lab.js"></script>
+</body>
+</html>
