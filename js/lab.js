@@ -39,7 +39,7 @@
 
   /* ===== دوال إحصائية ===== */
   function fmt(x) {
-    if (!isFinite(x)) return '—';
+    if (!isFinite(x)) return ':';
     var r = Math.round(x * 100) / 100;
     return String(r);
   }
